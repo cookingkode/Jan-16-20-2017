@@ -1,0 +1,2 @@
+https://facebook.github.io/react/downloads/react-15.0.1.zip 
+https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.18.1/babel.min.js 
