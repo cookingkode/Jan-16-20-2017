@@ -1,0 +1,53 @@
+<html>
+	<head>
+		<script src="babel.js"></script>
+		<script src="react.js"></script>
+		<script src="react-dom.js"></script>
+		<style>
+		.login{
+			background-color : blue;
+		}
+		</style>
+	</head>
+	<body>
+	<div id="root"></div>
+	<script type="text/jsx">
+		class Welcome extends React.Component{
+			render(){
+				return <h1>Welcome to React Training</h1>
+			}
+		}
+		
+		class Login extends React.Component {
+			render(){
+				var ui = (
+					<div>
+						<input type="text" placeholder="Username"/>
+						<br/>
+						<input type="password" placeholder="Password"/>
+						<br/>
+						<button>Login</button>
+					</div>	
+				);
+				return ui;
+			}
+		};
+		class Main extends React.Component{
+			render(){
+				return (
+					<div>
+						<Welcome/>
+						<hr/>
+						<Login/>
+					</div>	
+				);
+			}
+		}
+		
+		ReactDOM.render(<Main/>,document.getElementById("root"));
+			
+		
+		
+	</script>	
+	</body>		
+</html>

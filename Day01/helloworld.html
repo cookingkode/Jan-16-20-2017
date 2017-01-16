@@ -5,12 +5,23 @@
 		<script src="react-dom.js"></script>
 	</head>
 	<body>
+		<input type="text" placeholder="Relaxed syntax">
 		<div id="blore">
+			
 		</div>
-		<script type="text/jsx">
-			var elem = <h1>Hello React</h1>;
-			ReactDOM.render(elem,
-				document.getElementById("blore"));
-		</script>	
+		<div id="chennai"></div>
+		<div id="pune"></div>
+	<script type="text/jsx">
+		function doSomething(){
+			console.log("Button clicked");
+		}	
+		var name = "Sam";
+		var elem = <h1>Hello {name}</h1>;
+		var tb = <input type="text"/>;
+		var btn = <button onClick={doSomething}>Click</button>;
+		ReactDOM.render(elem,document.getElementById("blore"));
+		ReactDOM.render(tb, document.getElementById("chennai"));
+		ReactDOM.render(btn,document.getElementById("pune"));				
+	</script>	
 	</body>		
 </html>

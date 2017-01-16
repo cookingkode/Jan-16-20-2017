@@ -1,0 +1,18 @@
+<html>
+	<head>
+		<script src="react.js"></script>
+		<script src="react-dom.js"></script>
+	</head>
+	<body>
+		<div id="blore"></div>
+		<div id="chennai"></div>
+		<script>
+		var elem = React.createElement("h1",null,"Hello React without JSX");
+		var tb = React.createElement("input",null);
+		//tb.createAttribute("type","text");
+		
+		ReactDOM.render(elem,document.getElementById("blore"));	
+		ReactDOM.render(tb,document.getElementById("chennai"));	
+		</script>	
+	</body>		
+</html>

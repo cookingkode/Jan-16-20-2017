@@ -1,0 +1,27 @@
+<html>
+	<head>
+		<script src="babel.js"></script>
+		<script src="react.js"></script>
+		<script src="react-dom.js"></script>
+		<style>
+		.login{
+			background-color : blue;
+		}
+		</style>
+	</head>
+	<body>
+		<div id="root"></div>
+	<script type="text/jsx">
+		var login = (
+			<div>
+				<input type="text" placeholder="Username"/><br/>
+				<input type="password" placeholder="Password"/><br/>
+				<button className="login">Login</button>
+			</div>	
+		);
+		ReactDOM.render(login,document.getElementById("root"));
+		
+		
+	</script>	
+	</body>		
+</html>
