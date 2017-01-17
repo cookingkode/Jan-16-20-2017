@@ -1,0 +1,64 @@
+<html>
+	<head>
+		<script src="babel.js"></script>
+		<script src="react.js"></script>
+		<script src="react-dom.js"></script>
+	</head>
+	<body>
+		<div id="root"></div>
+		<script type="text/jsx">
+			
+			class Header extends React.Component{
+				constructor(props){
+					super(props);
+					this.state = { 
+						message : "Stay Awake!!", 
+						name : 'Please enter a name'
+					};
+					//EVEN MORE STUPID
+					//Tell handleNameChange to use Header's "this"
+					this.handleNameChange = this.handleNameChange.bind(this);
+					this.handleClick = this.handleClick.bind(this);
+				}
+				
+				handleClick(){
+					var message = `Hello ${this.state.name}`;
+					this.setState({
+						message : message
+					});
+				}
+				shouldComponentUpdate(a,nextState){
+					if(nextState.name == "zzzz")
+						return false;
+					else
+						return true;	
+				}
+				componentWillUpdate(){
+					
+				}
+				componentDidUpdate(){
+				}
+				handleNameChange(e){
+					let nameEntered = e.target.value;
+					this.setState( { 
+						name : nameEntered
+					});
+				}
+				render(){
+					return (
+						<div>
+							<h1>{new Date().toString()}</h1>
+							<input type="text" 
+								placeholder="Name"
+								onBlur={this.handleNameChange}/>
+							<button onClick={this.handleClick}>Click</button>	
+							<hr/>
+							<h1>{this.state.message}</h1>
+						</div>
+					);
+				}
+			}
+			ReactDOM.render(<Header/>,document.getElementById("root"));
+		</script>	
+	</body>
+</html>		
