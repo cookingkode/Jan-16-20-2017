@@ -1,0 +1,61 @@
+<html>
+	<head>
+		<script src="babel.js"></script>
+		<script src="react.js"></script>
+		<script src="react-dom.js"></script>
+	</head>
+	<body>
+		<div id="root1"></div>
+		<div id="root2"></div>
+		<div id="root3"></div>
+		<script type="text/jsx">
+			
+			class Header3 extends React.Component{
+				componentWillMount(){
+					console.log("componentWillMount called");	
+				}
+				render(){
+					console.log("render called");	
+					return (
+						<h1>Post-Confusion time</h1>
+					);
+				}
+				componentDidMount(){
+					console.log("componentDidMount called");	
+				}
+			}
+			
+			class Header2 extends React.Component{
+				componentWillMount(){
+					console.log("componentWillMount called");	
+				}
+				render(){
+					console.log("render called");	
+					return (
+						<h1>Confusion time</h1>
+					);
+				}
+				componentDidMount(){
+					console.log("componentDidMount called");	
+				}
+			}
+			class Header1 extends React.Component{
+				componentWillMount(){
+					console.log("componentWillMount called");	
+				}
+				render(){
+					console.log("render called");	
+					return (
+						<h1>Lunch time</h1>
+					);
+				}
+				componentDidMount(){
+					console.log("componentDidMount called");	
+				}
+			}
+			ReactDOM.render(<Header1/>,document.getElementById("root1"));
+			ReactDOM.render(<Header2/>,document.getElementById("root1"));
+			ReactDOM.render(<Header3/>,document.getElementById("root1"));
+		</script>	
+	</body>
+</html>		
