@@ -4,11 +4,22 @@
 //Can declare a variable without var or let or const 
 //HIGHLY DISCOURAGED
 
+let confused = "yes";
+
+function confuseMore(){
+	let confused = "no";
+	console.log(confused);
+}
+confuseMore();
+
+
+
+
 function scope_of_constant(){
 	if(true){
 		const i = 10;	
 	}
-	console.log(i);//ERROR
+	//console.log(i);//ERROR
 }
 scope_of_constant();
 

@@ -1,0 +1,49 @@
+<html>
+	<head>
+		<script src="babel.js"></script>
+		<script src="react.js"></script>
+		<script src="react-dom.js"></script>
+	</head>
+	<body>
+		<div id="root"></div>
+		<script type="text/jsx">
+			
+			class Cities extends React.Component{
+				fetchCityRows(){
+					let citiesMap = new Map();
+					citiesMap.set(1,"Chennai");
+					citiesMap.set(2,"Bangalore");
+					citiesMap.set(3,"Pune");
+			
+					var cityRows = [];
+					for(var [key,value] of citiesMap){
+						var row = (
+							<tr key={key}>
+								<td>{key}</td>
+								<td>{value}</td>
+							</tr>	
+						);
+						cityRows.push(row);
+					}
+					return cityRows;
+				}
+				render(){
+					var table = (
+						<table border="1">
+							<thead>
+								<tr>
+									<th>No</th>
+									<th>City</th>										</tr>
+							</thead>
+							<tbody>
+								{this.fetchCityRows()}
+							</tbody>		
+						</table>	
+					);
+					return table;
+				}
+			}
+			ReactDOM.render(<Cities/>,document.getElementById("root"));
+		</script>	
+	</body>
+</html>		
