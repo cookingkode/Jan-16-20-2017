@@ -1,0 +1,86 @@
+<html>
+	<head>
+		<script src="babel.js"></script>
+		<script src="react.js"></script>
+		<script src="react-dom.js"></script>
+		<style>
+		.correct{
+			display:none;
+		}
+		.incorrect{
+			display:block;
+		}
+		</style>
+	</head>
+	<body>
+		<div id="root"></div>
+		<script type="text/jsx">
+			class Game extends React.Component{
+				constructor(props){
+					super(props);
+					this.state = this.initializeGame();
+					this.handleGuessChange = this.handleGuessChange.bind(this);
+					this.play = this.play.bind(this);
+				}
+				handleGuessChange(e){
+					var guess = e.target.value;
+					
+					this.setState({guess:guess});
+				}
+				play(){
+					var guess = this.state.guess;
+					var error = "correct";
+					if(isNaN(guess)){
+						error = "incorrect";
+						this.setState({error:error});
+					}
+					else{
+						var target = this.state.target;
+						var attempts = this.state.attempts;
+						var gameOver = false;
+						var message = "";
+						attempts++;
+						if(guess > target)
+							message = "Aim Lower";
+						else if(guess < target)
+							message = "Aim Higher";	
+						else{
+							message = "You've got it!!!";
+							gameOver = true;	
+						}
+						this.setState({
+							attempts : attempts,
+							message : message,
+							gameOver : gameOver,
+							error : error
+						});
+					}
+				}
+				render(){
+					return (
+						<div>
+							<h1>Welcome to the Guessing game. Enter a number between 1 and 100.</h1>
+							<input type="text" placeholder="Guess" onBlur={this.handleGuessChange}/>
+							<h4 className={this.state.error}>Invalid Input</h4>
+							<button disabled={this.state.gameOver} onClick={this.play}>Play</button>
+							<hr/>
+							<h1>{this.state.message}</h1>
+							<h1>{this.state.attempts > 0 && `Attempts:  ${this.state.attempts}`}</h1>
+						</div>	
+					);
+				}
+				initializeGame(){
+					return {
+						target : Math.floor(Math.random()*100),
+						attempts : 0,
+						message : "",
+						gameOver : false,
+						guess : 0,
+						error: "correct"
+					};
+				}
+			}
+			ReactDOM.render(<Game/>,document.getElementById("root"));
+		</script>	
+	</body>
+</html>		
